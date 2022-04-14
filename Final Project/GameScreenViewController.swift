@@ -9,21 +9,32 @@ import UIKit
 
 class GameScreenViewController: UIViewController {
 
+
+    @IBOutlet weak var userscore: UILabel!
+    @IBOutlet weak var housescore: UILabel!
+    
+    @IBOutlet weak var housecard1: UIImageView!
+    
+    @IBOutlet weak var housecard2: UIImageView!
+    
+    @IBOutlet weak var usercard2: UIImageView!
+    @IBOutlet weak var usercard1: UIImageView!
+    @IBOutlet weak var username: UILabel!
+    var text: String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if text != nil {
+            username.text = text
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func hit(_ sender: Any) {
+        
     }
-    */
-
+   
+    @IBAction func stay(_ sender: Any) {
+        
+    }
+    
 }

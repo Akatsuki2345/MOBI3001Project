@@ -20,7 +20,10 @@ class ViewController: UIViewController {
     
 
     @IBAction func click(_ sender: Any) {
-        let username = inputname.text ?? ""
+        let controller = storyboard?.instantiateViewController(withIdentifier: "GameScreen") as! GameScreenViewController
+        controller.text = inputname.text
+        
+        present(controller, animated: true, completion: nil)
         
     }
     
