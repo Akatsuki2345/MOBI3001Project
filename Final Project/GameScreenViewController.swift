@@ -8,7 +8,17 @@
 import UIKit
 
 class GameScreenViewController: UIViewController {
-
+    
+    var pokerkind = ["Club","Spade","Diamond","Heart"];
+    var cardnumber = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+    var newpokerkind = [""];
+    var newcardnumber = [1];
+    var housescore = 0;
+    var userscore = 0;
+    var usermoney = 0;
+    var n = 0;
+    var msg = "Winner is house";
+    var msg2 = "You are the winner!";
 
     @IBOutlet weak var userscorelab: UILabel!
     @IBOutlet weak var housescorelab: UILabel!
@@ -27,28 +37,70 @@ class GameScreenViewController: UIViewController {
         if text != nil {
             username.text = text
         }
+    
+        
     }
     
-    @IBAction func hit(_ sender: Any) {
-        var pokerkind = ["Club","Spade","Diamond","Heart"]
+    func shufflecard() {
         pokerkind.shuffle()
-        let newpokerkind = pokerkind.shuffled()
-        var cardnumber = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
         cardnumber.shuffle()
-        let newcardnumber = cardnumber.shuffled()
+        newpokerkind = pokerkind.shuffled()
+        newcardnumber = cardnumber.shuffled()
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Result", message: msg2, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlert2() {
+        let alert = UIAlertController(title: "Result", message: msg, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)    }
+    
+    @IBAction func hit(_ sender: Any) {
+        shufflecard()
         
         housecard1.image = UIImage(named: "Card\(newpokerkind[0])\(newcardnumber[0])")
-        housecard2.image = UIImage(named: "Card\(newpokerkind[1])\(newcardnumber[1])")
-        let housescore = newcardnumber[0] + newcardnumber[1]
+        housecard2.image = UIImage(named: "Card\(newpokerkind[0])\(newcardnumber[1])")
+        housescore = newcardnumber[0] + newcardnumber[1]
         housescorelab.text = "\(housescore)"
-        usercard1.image = UIImage(named: "Card\(newpokerkind[2])\(newcardnumber[2])")
-        usercard2.image = UIImage(named: "Card\(newpokerkind[3])\(newcardnumber[3])")
-        let userscore = newcardnumber[2] + newcardnumber[3]
+        usercard1.image = UIImage(named: "Card\(newpokerkind[0])\(newcardnumber[2])")
+        usercard2.image = UIImage(named: "Card\(newpokerkind[0])\(newcardnumber[3])")
+        userscore = newcardnumber[2] + newcardnumber[3]
         userscorelab.text = "\(userscore)"
+        n = 3
+        if housescore > 21 && userscore < 21{
+            usermoney = usermoney + 50
+            showAlert()
+            
+        } else if housescore >= userscore {
+            usermoney = usermoney + 50
+            
+        }
+        if userscore > 21 && housescore < 21 {
+            usermoney = usermoney - 50
+            showAlert2()
+        }
     }
-   
+    
+       
+    
+    
     @IBAction func hitafterstart(_ sender: Any) {
+        shufflecard()
         
+        usercard1.image = UIImage(named: "Card\(newpokerkind[0])\(newcardnumber[n+1])")
+        userscore = userscore + newcardnumber[n+1]
+        userscorelab.text = "\(userscore)"
+        if userscore > 21 && userscore >= housescore {
+            userscore = userscore - 50
+            userscorelab.text = "\(userscore)"
+            
+        }
     }
     @IBAction func stay(_ sender: Any) {
         
