@@ -29,6 +29,7 @@ class GameScreenViewController: UIViewController {
     
     @IBOutlet weak var housecard2: UIImageView!
     
+    @IBOutlet weak var moneylab: UILabel!
     @IBOutlet weak var usercard2: UIImageView!
     @IBOutlet weak var usercard1: UIImageView!
     @IBOutlet weak var username: UILabel!
@@ -39,8 +40,8 @@ class GameScreenViewController: UIViewController {
         if text != nil {
             username.text = text
         }
-    
         
+        moneylab.text = "0"
     }
     
     func shufflecard() {
@@ -51,6 +52,7 @@ class GameScreenViewController: UIViewController {
     }
     
     func passmoneydata() {
+        moneylab.text = "\(usermoney)"
         let controller = storyboard?.instantiateViewController(withIdentifier: "creditsscreen") as! CreditsViewController
         controller.finalmoney = "\(usermoney)"
         
@@ -102,12 +104,15 @@ class GameScreenViewController: UIViewController {
         }
         if housescore == 21 && userscore == 21 {
             showAlert3()
+            viewWillAppear(true)
+            
         }
         if userscore > 21 && housescore < 21 {
             usermoney = usermoney - 50
             showAlert2()
             startbtn.isHidden = false
             passmoneydata()
+            viewWillAppear(true)
         }
     }
     
@@ -126,9 +131,12 @@ class GameScreenViewController: UIViewController {
             showAlert2()
             startbtn.isHidden = false
             passmoneydata()
+            viewWillAppear(true)
         }
         if housescore == 21 && userscore == 21 {
             showAlert3()
+            viewWillAppear(true)
+            
         }
     }
     @IBAction func stay(_ sender: Any) {
@@ -143,9 +151,12 @@ class GameScreenViewController: UIViewController {
             showAlert()
             startbtn.isHidden = false
             passmoneydata()
+            viewWillAppear(true)
         }
         if housescore == 21 && userscore == 21 {
             showAlert3()
+            viewWillAppear(true)
+            
         }
         
     }
