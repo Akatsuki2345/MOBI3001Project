@@ -53,13 +53,16 @@ class GameScreenViewController: UIViewController {
         let dismissAction = UIAlertAction(title: "Close", style: .default, handler: nil)
         alert.addAction(dismissAction)
         present(alert, animated: true, completion: nil)
+        
     }
     
     func showAlert2() {
         let alert = UIAlertController(title: "Result", message: msg, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Close", style: .default, handler: nil)
         alert.addAction(dismissAction)
-        present(alert, animated: true, completion: nil)    }
+        present(alert, animated: true, completion: nil)
+        
+    }
     
     @IBAction func hit(_ sender: Any) {
         shufflecard()
@@ -76,7 +79,7 @@ class GameScreenViewController: UIViewController {
         if housescore > 21 && userscore < 21{
             usermoney = usermoney + 50
             showAlert()
-            
+            self.navigationController?.viewControllers = [self]
         } else if housescore >= userscore {
             usermoney = usermoney + 50
             
@@ -84,7 +87,7 @@ class GameScreenViewController: UIViewController {
         if userscore > 21 && housescore < 21 {
             usermoney = usermoney - 50
             showAlert2()
-        }
+            self.navigationController?.viewControllers = [self]        }
     }
     
        
@@ -99,10 +102,20 @@ class GameScreenViewController: UIViewController {
         if userscore > 21 && userscore >= housescore {
             userscore = userscore - 50
             userscorelab.text = "\(userscore)"
-            
+            showAlert2()
         }
     }
     @IBAction func stay(_ sender: Any) {
+        shufflecard()
+        
+        housecard1.image = UIImage(named: "Card\(newpokerkind[0])\(newcardnumber[n+1])")
+        housescore = housescore + newcardnumber[n+1]
+        housescorelab.text = "\(userscore)"
+        if housescore > 21 && userscore <= 21 {
+            usermoney = usermoney + 50
+            housescorelab.text = "\(housescore)"
+            showAlert()
+        }
         
     }
     
