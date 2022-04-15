@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="86" id="g0h-rT-9sN"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Hit"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
                                 <connections>
                                     <action selector="hit:" destination="bnU-zN-KeW" eventType="touchUpInside" id="j7n-xk-OiP"/>
                                 </connections>
@@ -110,6 +110,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgA-SV-8Ku">
+                                <rect key="frame" x="166" y="470" width="82" height="31"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="NMS-Oc-YC1"/>
+                                    <constraint firstAttribute="height" constant="31" id="gSr-NX-yAV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Hit"/>
+                                <connections>
+                                    <action selector="hitafterstart:" destination="bnU-zN-KeW" eventType="touchUpInside" id="onr-35-QLc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mja-Ci-np7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -121,12 +134,15 @@
                             <constraint firstItem="UIb-Me-rov" firstAttribute="top" secondItem="TpH-XY-Obs" secondAttribute="bottom" constant="61" id="BeX-Di-rSG"/>
                             <constraint firstItem="9wk-QN-TQc" firstAttribute="leading" secondItem="Mja-Ci-np7" secondAttribute="leading" constant="162" id="BjM-Xp-Txd"/>
                             <constraint firstItem="Mp0-Ja-yqP" firstAttribute="centerY" secondItem="Mja-Ci-np7" secondAttribute="centerY" id="C8F-qJ-YcL"/>
+                            <constraint firstItem="TpH-XY-Obs" firstAttribute="top" secondItem="cgA-SV-8Ku" secondAttribute="bottom" constant="68" id="GIm-BL-zwQ"/>
                             <constraint firstItem="Ywf-6N-LTG" firstAttribute="centerY" secondItem="Mja-Ci-np7" secondAttribute="centerY" id="GRG-L0-oUP"/>
                             <constraint firstItem="Mp0-Ja-yqP" firstAttribute="leading" secondItem="Mja-Ci-np7" secondAttribute="leading" constant="77" id="HhS-zA-GnI"/>
                             <constraint firstItem="UIb-Me-rov" firstAttribute="top" secondItem="PAW-2r-8fP" secondAttribute="bottom" constant="61" id="OWU-jR-ph0"/>
+                            <constraint firstItem="cgA-SV-8Ku" firstAttribute="leading" secondItem="Mja-Ci-np7" secondAttribute="leading" constant="166" id="OdI-aO-nv8"/>
                             <constraint firstItem="TpH-XY-Obs" firstAttribute="leading" secondItem="Mja-Ci-np7" secondAttribute="leading" constant="73" id="Ooq-YI-Hzi"/>
                             <constraint firstItem="6fw-Ep-IKz" firstAttribute="leading" secondItem="Mja-Ci-np7" secondAttribute="leading" constant="162" id="OtS-q0-yWi"/>
                             <constraint firstItem="Mja-Ci-np7" firstAttribute="trailing" secondItem="Ywf-6N-LTG" secondAttribute="trailing" constant="77" id="QFJ-um-PmZ"/>
+                            <constraint firstItem="Mja-Ci-np7" firstAttribute="trailing" secondItem="cgA-SV-8Ku" secondAttribute="trailing" constant="166" id="Uhf-iu-mL1"/>
                             <constraint firstItem="vuV-wY-AHI" firstAttribute="top" secondItem="9wk-QN-TQc" secondAttribute="bottom" constant="61" id="WEV-YX-DoH"/>
                             <constraint firstItem="HtH-uA-qAv" firstAttribute="leading" secondItem="Mja-Ci-np7" secondAttribute="leading" constant="73" id="Y6I-KR-GWG"/>
                             <constraint firstItem="HtH-uA-qAv" firstAttribute="top" secondItem="6fw-Ep-IKz" secondAttribute="bottom" constant="17" id="ZVa-mS-498"/>
@@ -145,11 +161,11 @@
                     <connections>
                         <outlet property="housecard1" destination="HtH-uA-qAv" id="0IO-Zc-O2b"/>
                         <outlet property="housecard2" destination="vuV-wY-AHI" id="ZXw-oN-CYu"/>
-                        <outlet property="housescore" destination="6fw-Ep-IKz" id="zJ8-Oh-cjx"/>
+                        <outlet property="housescorelab" destination="6fw-Ep-IKz" id="bVJ-aK-m68"/>
                         <outlet property="usercard1" destination="TpH-XY-Obs" id="U5M-ur-21V"/>
                         <outlet property="usercard2" destination="PAW-2r-8fP" id="JXQ-cD-BBH"/>
                         <outlet property="username" destination="UIb-Me-rov" id="fw7-ya-uaN"/>
-                        <outlet property="userscore" destination="Yu8-S7-y1e" id="8bi-zs-rjN"/>
+                        <outlet property="userscorelab" destination="Yu8-S7-y1e" id="daz-ed-eQP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGu-cT-Dnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -270,6 +286,9 @@
         <image name="home" width="30" height="30"/>
         <image name="list.number" catalog="system" width="128" height="97"/>
         <image name="redcardback" width="294" height="409"/>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
