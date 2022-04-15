@@ -176,7 +176,7 @@
         <!--Credits-->
         <scene sceneID="wxS-jl-wDe">
             <objects>
-                <viewController id="Xig-zW-dKr" customClass="CreditsViewController" customModule="Final_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="creditsscreen" id="Xig-zW-dKr" customClass="CreditsViewController" customModule="Final_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8hC-WS-C8j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,6 +212,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Credits" image="list.number" catalog="system" landscapeImage="list.number" largeContentSizeImage="list.number" selectedImage="list.number" id="QLV-5c-fbU"/>
+                    <connections>
+                        <outlet property="money" destination="TVC-le-Pdr" id="C5u-bJ-kQL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ao5-0s-wVP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

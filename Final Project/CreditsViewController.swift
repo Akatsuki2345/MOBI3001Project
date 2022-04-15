@@ -9,10 +9,12 @@ import UIKit
 
 class CreditsViewController: UIViewController {
 
+    @IBOutlet weak var money: UILabel!
+    var finalmoney: String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        money.text = finalmoney
     }
     
 

@@ -19,6 +19,7 @@ class GameScreenViewController: UIViewController {
     var n = 0;
     var msg = "Winner is house";
     var msg2 = "You are the winner!";
+    var msg3 = "Draw!";
 
     @IBOutlet weak var startbtn: UIButton!
     @IBOutlet weak var userscorelab: UILabel!
@@ -49,6 +50,14 @@ class GameScreenViewController: UIViewController {
         newcardnumber = cardnumber.shuffled()
     }
     
+    func passmoneydata() {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "creditsscreen") as! CreditsViewController
+        controller.finalmoney = "\(usermoney)"
+        
+        present(controller, animated: true, completion: nil)
+        
+    }
+    
     func showAlert() {
         let alert = UIAlertController(title: "Result", message: msg2, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Close", style: .default, handler: nil)
@@ -65,6 +74,13 @@ class GameScreenViewController: UIViewController {
         
     }
     
+    func showAlert3() {
+        let alert = UIAlertController(title: "Result", message: msg3, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)
+        
+    }
     @IBAction func hit(_ sender: Any) {
         startbtn.isHidden = true
         shufflecard()
@@ -82,16 +98,17 @@ class GameScreenViewController: UIViewController {
             usermoney = usermoney + 50
             showAlert()
             startbtn.isHidden = false
-        } else if housescore >= userscore {
-            usermoney = usermoney - 50
-            showAlert2()
-            startbtn.isHidden = false
+            passmoneydata()
+        }
+        if housescore == 21 && userscore == 21 {
+            showAlert3()
         }
         if userscore > 21 && housescore < 21 {
             usermoney = usermoney - 50
             showAlert2()
             startbtn.isHidden = false
-            self.navigationController?.viewControllers = [self]        }
+            passmoneydata()
+        }
     }
     
        
@@ -107,7 +124,12 @@ class GameScreenViewController: UIViewController {
             usermoney = usermoney - 50
             userscorelab.text = "\(userscore)"
             showAlert2()
-            startbtn.isHidden = false        }
+            startbtn.isHidden = false
+            passmoneydata()
+        }
+        if housescore == 21 && userscore == 21 {
+            showAlert3()
+        }
     }
     @IBAction func stay(_ sender: Any) {
         shufflecard()
@@ -119,7 +141,12 @@ class GameScreenViewController: UIViewController {
             usermoney = usermoney + 50
             housescorelab.text = "\(housescore)"
             showAlert()
-            startbtn.isHidden = false        }
+            startbtn.isHidden = false
+            passmoneydata()
+        }
+        if housescore == 21 && userscore == 21 {
+            showAlert3()
+        }
         
     }
     
