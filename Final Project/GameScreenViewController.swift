@@ -20,6 +20,7 @@ class GameScreenViewController: UIViewController {
     var msg = "Winner is house";
     var msg2 = "You are the winner!";
 
+    @IBOutlet weak var startbtn: UIButton!
     @IBOutlet weak var userscorelab: UILabel!
     @IBOutlet weak var housescorelab: UILabel!
     
@@ -65,6 +66,7 @@ class GameScreenViewController: UIViewController {
     }
     
     @IBAction func hit(_ sender: Any) {
+        startbtn.isHidden = true
         shufflecard()
         
         housecard1.image = UIImage(named: "Card\(newpokerkind[0])\(newcardnumber[0])")
@@ -79,14 +81,16 @@ class GameScreenViewController: UIViewController {
         if housescore > 21 && userscore < 21{
             usermoney = usermoney + 50
             showAlert()
-            self.navigationController?.viewControllers = [self]
+            startbtn.isHidden = false
         } else if housescore >= userscore {
-            usermoney = usermoney + 50
-            
+            usermoney = usermoney - 50
+            showAlert2()
+            startbtn.isHidden = false
         }
         if userscore > 21 && housescore < 21 {
             usermoney = usermoney - 50
             showAlert2()
+            startbtn.isHidden = false
             self.navigationController?.viewControllers = [self]        }
     }
     
@@ -100,10 +104,10 @@ class GameScreenViewController: UIViewController {
         userscore = userscore + newcardnumber[n+1]
         userscorelab.text = "\(userscore)"
         if userscore > 21 && userscore >= housescore {
-            userscore = userscore - 50
+            usermoney = usermoney - 50
             userscorelab.text = "\(userscore)"
             showAlert2()
-        }
+            startbtn.isHidden = false        }
     }
     @IBAction func stay(_ sender: Any) {
         shufflecard()
@@ -115,7 +119,7 @@ class GameScreenViewController: UIViewController {
             usermoney = usermoney + 50
             housescorelab.text = "\(housescore)"
             showAlert()
-        }
+            startbtn.isHidden = false        }
         
     }
     

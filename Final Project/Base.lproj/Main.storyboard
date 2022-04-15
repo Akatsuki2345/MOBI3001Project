@@ -162,6 +162,7 @@
                         <outlet property="housecard1" destination="HtH-uA-qAv" id="0IO-Zc-O2b"/>
                         <outlet property="housecard2" destination="vuV-wY-AHI" id="ZXw-oN-CYu"/>
                         <outlet property="housescorelab" destination="6fw-Ep-IKz" id="bVJ-aK-m68"/>
+                        <outlet property="startbtn" destination="Mp0-Ja-yqP" id="1Rm-gC-vMy"/>
                         <outlet property="usercard1" destination="TpH-XY-Obs" id="U5M-ur-21V"/>
                         <outlet property="usercard2" destination="PAW-2r-8fP" id="JXQ-cD-BBH"/>
                         <outlet property="username" destination="UIb-Me-rov" id="fw7-ya-uaN"/>
@@ -179,14 +180,42 @@
                     <view key="view" contentMode="scaleToFill" id="8hC-WS-C8j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVC-le-Pdr">
+                                <rect key="frame" x="140" y="418" width="134" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3IR-6U-4k7"/>
+                                    <constraint firstAttribute="width" constant="134" id="lFh-so-pnw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your money is: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4d-7n-YwY">
+                                <rect key="frame" x="76" y="472" width="262" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Pnf-Gk-rFw"/>
+                                    <constraint firstAttribute="width" constant="262" id="UMh-kz-bi3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="duB-Ru-ACi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TVC-le-Pdr" firstAttribute="centerX" secondItem="duB-Ru-ACi" secondAttribute="centerX" id="AEu-kG-rio"/>
+                            <constraint firstItem="X4d-7n-YwY" firstAttribute="top" secondItem="TVC-le-Pdr" secondAttribute="bottom" constant="33" id="Q62-NS-7Lv"/>
+                            <constraint firstItem="X4d-7n-YwY" firstAttribute="centerX" secondItem="duB-Ru-ACi" secondAttribute="centerX" id="V5C-q8-egF"/>
+                            <constraint firstItem="TVC-le-Pdr" firstAttribute="centerY" secondItem="duB-Ru-ACi" secondAttribute="centerY" id="Z4O-hD-5na"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Credits" image="list.number" catalog="system" landscapeImage="list.number" largeContentSizeImage="list.number" selectedImage="list.number" id="QLV-5c-fbU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ao5-0s-wVP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683" y="1097"/>
+            <point key="canvasLocation" x="682.60869565217399" y="1096.875"/>
         </scene>
         <!--Main Screen-->
         <scene sceneID="l4D-Gc-HJZ">
